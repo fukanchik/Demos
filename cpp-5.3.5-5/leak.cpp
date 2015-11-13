@@ -12,7 +12,7 @@
  *    note: neither the destructor nor the class-specific operator delete will be called,
  *    even if they are declared when the class is defined
  * MSVC:
- *    TBD
+ *    warning C4150: deletion of pointer to incomplete type 'A'; no destructor called
  */
 
 //delete: warning
