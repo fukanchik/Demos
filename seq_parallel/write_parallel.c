@@ -8,6 +8,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <pthread.h>
+#include <time.h>
 
 #define BUFSZ 8192
 
@@ -33,6 +34,8 @@ writer_func(void *a)
 
 	for(int i = 0; i < NUM_WRITES; ++i)
 	{
+		struct timespec req = {0, random()%300};
+		nanosleep(&req, NULL);
 		int write_size = snprintf(buf, BUFSZ, "%d:%d\n", args->thnum, i);
 		unsigned long myoffset = atomic_fetch_add(&offset, write_size);
 		/*
