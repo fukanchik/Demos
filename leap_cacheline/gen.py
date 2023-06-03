@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+
 import random
-NUM_YEARS=20#_000_000
+NUM_YEARS=20_000_000
 
 print("int years_to_check[%d] = {" % NUM_YEARS)
 sep="  "

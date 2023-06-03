@@ -21,7 +21,7 @@ main(int argc, char *argv[])
 	for(j=0;j<NTRIES;++j)
 	for(i=0;i<NUM_YEARS;++i)
 	{
-		sum += is_leap4(years_to_check[i]);
+		sum += is_leap1(years_to_check[i]);
 		someval = someval + sum + 1;
 	}
 	return sum;
