@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 bool isleap_fast(int year) {
     if (year %4 == 0) {
@@ -22,11 +23,20 @@ int isleap_branchless(int year)
     return (div4 & !div100) | div400;
 }
 
+
+int
+isleap2(int y)
+{
+  if (((y%4==0) && (y%100!=0)) || (y%400==0))
+    return 1;
+  return 0;
+}
+
 int main()
 {
     for(int i=1000;i<=2100;++i)
     {
-        printf("%d %d\n", i, isleap_fast(i));
+        printf("%d %d\n", i, isleap2(i));
     }
     return 0;
 }
