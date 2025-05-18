@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdint.h>
 
-bool isleap_fast(int year) {
+bool
+isleap_fast(int year) {
     if (year %4 == 0) {
         if (year %100 == 0) {
             if (year %400 == 0) {
@@ -14,7 +16,8 @@ bool isleap_fast(int year) {
     return false;
 }
 
-int isleap_branchless(int year)
+bool
+isleap_branchless(int year)
 {
     int div4 = !(year % 4);
     int div100 = !(year % 100);
@@ -24,12 +27,21 @@ int isleap_branchless(int year)
 }
 
 
-int
+bool
 isleap2(int y)
 {
   if (((y%4==0) && (y%100!=0)) || (y%400==0))
-    return 1;
-  return 0;
+    return true;
+  return false;
+}
+
+/*
+ * https://hueffner.de/falk/blog/a-leap-year-check-in-three-instructions.html
+ */
+bool
+isleap_three_instr(uint32_t y)
+{
+  return ((y * 1073750999) & 3221352463) <= 126976;
 }
 
 int main()
