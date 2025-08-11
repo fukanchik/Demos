@@ -8,26 +8,22 @@
 #include <boost/log/expressions.hpp>
 #include <boost/log/trivial.hpp>
 
-struct X
-{
-	X() { std::cout << "Extra object created" << std::endl; }
+struct X {
+  X() { std::cout << "Extra object created" << std::endl; }
 
-	operator int() const { return 42; }
+  operator int() const { return 42; }
 };
 
-int
-main(int argc, char *argv[])
-{
-	const boost::log::trivial::severity_level log_level =
-	        (argc > 1) ? boost::log::trivial::error
-	                   : boost::log::trivial::trace;
+int main(int argc, char *argv[]) {
+  const boost::log::trivial::severity_level log_level =
+      (argc > 1) ? boost::log::trivial::error : boost::log::trivial::trace;
 
-	std::cerr << "Using log level " << log_level << std::endl;
+  std::cerr << "Using log level " << log_level << std::endl;
 
-	boost::log::core::get()->set_filter(boost::log::trivial::severity >=
-	                                    log_level);
+  boost::log::core::get()->set_filter(boost::log::trivial::severity >=
+                                      log_level);
 
-	BOOST_LOG_TRIVIAL(debug) << X{};
+  BOOST_LOG_TRIVIAL(debug) << X{};
 
-	return 0;
+  return 0;
 }

@@ -15,6 +15,6 @@ public:
 
 int main() {
   X x{42};
-  std::unique_ptr p = std::make_unique<X>(11);
+  std::unique_ptr<X> p = std::make_unique<X>(11);
   throw std::exception();
 }
