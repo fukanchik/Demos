@@ -1,12 +1,12 @@
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 
-int main()
+int
+main()
 {
-  printf("AAA");
-  fork();
-  printf("\n");
-  //fflush(stdout);
-  return 0;
+	printf("AAA");
+	fork();
+	printf("\n");
+	// fflush(stdout);
+	return 0;
 }
-
