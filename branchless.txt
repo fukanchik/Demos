@@ -1,0 +1,13 @@
+https://arxiv.org/abs/1604.06697
+
+for (int i = 0; i < 10000; i++) {
+    small_numbers[smlen] = numbers[i];
+    smlen += (numbers[i] < 500);
+}
+
+for (int i = 0; i < 10000; i++) {
+    if (numbers[i] < 500) {
+        small_numbers[smlen] = numbers[i];
+        smlen += 1;
+    }
+}
