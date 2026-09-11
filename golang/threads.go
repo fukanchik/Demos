@@ -5,10 +5,12 @@ import "time"
 
 /*
    #define _GNU_SOURCE
+
    #include <stdio.h>
    #include <unistd.h>
    #include <stdint.h>
    #include <pthread.h>
+
    #define NUM 5
    #define CNT 10
 
@@ -34,7 +36,7 @@ import "time"
 
    snprintf(name, 128, "XXX-%d", *p);
 
-	pthread_setname_np(pthread_self(), name);
+   pthread_setname_np(pthread_self(), name);
    for (int i=0;i<CNT;++i)
    {
    go_cb_print(*p, i);
@@ -53,12 +55,17 @@ import "time"
    int status;
    data[i] = i;
    status = pthread_create(threads+i, NULL, foo, data+i);
+   if (status)
+   {
+   fprintf(stderr, "[%d] pthread_create: %s\n", i, strerror(status));
+   threads[i] = 0;
+   }
    }
 
 
    for (int i=0;i<NUM;++i)
    {
-   pthread_join(threads[i], NULL);
+   if (threads[i]) pthread_join(threads[i], NULL);
    }
    }
  */
@@ -85,5 +92,5 @@ func go_cb_callback(ptr C.uintptr_t) {
 
 //export go_cb_sleep
 func go_cb_sleep() {
-		time.Sleep(time.Duration(1) * time.Second)
+	time.Sleep(time.Duration(1) * time.Second)
 }

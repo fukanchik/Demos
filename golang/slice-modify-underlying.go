@@ -13,7 +13,8 @@ func main() {
 	slice := []int{0, 0, 0};
 	newSlice := slice[0:2]
 	newSlice = append(newSlice, 1)
-	fmt.Println("Original, but modified", slice, " should be copy but the same", newSlice)
+	fmt.Println("Original, but modified", slice, " should be copy but the same",
+		newSlice)
 
     // But sometimes not
     sliceCopy := slice[0:2]

@@ -90,8 +90,8 @@ main(int argc, char *argv[])
 
   for (count = 0; count < max_count; ++count)
   {
+      socklen_t addrlen = sizeof(struct sockaddr_in);
       struct sockaddr_in peer;
-      socklen_t addrlen = sizeof(peer);
 
       int client = accept(sockd, (struct sockaddr*)&peer, &addrlen);
       if(client==-1)

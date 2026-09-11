@@ -19,7 +19,8 @@ struct A {
   ~A() { std::cout << "A::~A(" << num_created << ")" << std::endl; }
 };
 
-int main(int c, char *v[]) {
+int main(int c, char *v[])
+{
   try {
     A a;
     A b = a;
