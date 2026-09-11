@@ -38,12 +38,12 @@ get_max_count(int argc, char *argv[])
       errno = 0;
       ret = strtol( count_arg, &end, 10);
       if(count_arg == end || *end != '\0' || errno == ERANGE)
-	{
-	  fprintf(stderr, "Usage:\n\tserver <optional max-connection-count (default 10)>\n");
-	  fprintf(stderr, "ERROR: '%s' is not a number.\n", count_arg);
+      {
+          fprintf(stderr, "Usage:\n\tserver <optional max-connection-count (default 10)>\n");
+          fprintf(stderr, "ERROR: '%s' is not a number.\n", count_arg);
 
-	  exit(1);
-	}
+          exit(1);
+      }
       return ret;
     }
   else
@@ -88,21 +88,23 @@ main(int argc, char *argv[])
 
   printf("listening for maximum of %d connections on %d\n", max_count, SERVER_PORT);
 
-  for(count = 0; count < max_count; ++count) {
-    socklen_t addrlen;
-    struct sockaddr_in peer;
+  for (count = 0; count < max_count; ++count)
+  {
+      struct sockaddr_in peer;
+      socklen_t addrlen = sizeof(peer);
 
-    int client = accept(sockd, (struct sockaddr*)&peer, &addrlen);
-    if(client==-1) {
-      perror("accept()");
-      return -1;
-    }
-    printf("new\n");
+      int client = accept(sockd, (struct sockaddr*)&peer, &addrlen);
+      if(client==-1)
+      {
+          perror("accept()");
+          return -1;
+      }
+      printf("new\n");
   }
+
   close(sockd);
 
   silent_abort();
-		
+
   return 0;
 }
-

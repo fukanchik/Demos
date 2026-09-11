@@ -1,6 +1,6 @@
 # Demos
 ## cpp/ C++ language features
-* cpp_rvo.cpp - demo of return-value-optimization
+* cpp\_rvo.cpp - demo of return-value-optimization
 * destruct-parent.cpp - parent and field destructors are called on exception thrown from within the  constructor
 * except-wrap.cpp - exception-safe wrapper for I/O functions
 * atomic-unsigned-overflow.cpp - unsigned integer overflow is not UB even in atomics
@@ -20,5 +20,5 @@
 * gettimeofday.c - gettimeofday() granylarity and non-monotonicity
 * printf-twice.c - stdout buffer flush after fork
 * sigbus.c - generate SIGBUS which might be not easy
-* fork.c - Copy-on-write on fork() of MAP_PRIVATE regions
+* fork.c - Copy-on-write on fork() of MAP\_PRIVATE regions
 * throw-in-signal.cpp - do no throw from within a signal handler
