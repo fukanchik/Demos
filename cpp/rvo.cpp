@@ -60,7 +60,7 @@ rvo(int a)
 }
 
 int
-main(int c, char *v[])
+main()
 {
 	A a = non_rvo(42);
 	A b = rvo(16);
